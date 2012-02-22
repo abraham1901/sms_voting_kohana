@@ -26,11 +26,13 @@ class Controller_Poll extends Controller_Template
 		//$this->template->region = getRegion();
 		$region = getRegion();
 		// create view instance
-		$view = View::factory('poll/list');
+		//$view = View::factory('poll/list');
+		$view = View::factory('poll/item');
 		//
 		$timestamp = date('Y-m-d H:i:s', time());
 		
-		$view->polls = ORM::factory('poll')
+		//$view->polls = ORM::factory('poll')
+		$poll = ORM::factory('poll')
 			->join('polls_regions','left')
 			->on('polls_regions.poll_id','=', DB::expr('poll.id'))
 			->where('active','=',1)
@@ -41,9 +43,21 @@ class Controller_Poll extends Controller_Template
 			->or_where_close()
 			->where('polls_regions.region_id','=',$region->id)
 			->order_by('start_date','desc')
-			->find_all();
-			
-		$this->template->title = 'Актуальные голосования';
+			//->find_all();
+			->find();
+
+		//render view
+		//$this->template->title = 'Актуальные голосования';
+		$region_count = $poll->regions->count_all();
+		$view->region_count = $region_count;
+		if($region_count == 1)
+		{
+			$region = $poll->regions->find();
+			$this->template->title = ($poll->title . ', '. $region->name);
+		}
+		else
+			$this->template->title = $poll->title;
+		$view->poll = $poll;	
 		$this->template->content = $view;
 	}
 	public function action_archive()
