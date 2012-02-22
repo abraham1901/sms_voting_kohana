@@ -30,6 +30,7 @@ if(!$nt)
 	<div id="header">
     <div id="logo">
       <img src="/static/images/eg_logo.png" alt='Электронные голосования' title='Электронные голосования'>
+      Region: <?=$region?>
     </div>
 		<div id="menu">
 			<ul id="main_menu">
@@ -37,17 +38,26 @@ if(!$nt)
 					<a href="/future">Будущие голосования</a>
 					<ul>
 						<li>dropdown list</li>
+						<li>dropdown list</li>
+						<li>dropdown list</li>
+						<li>dropdown list</li>
 					</ul>
 				</li>
 				<li>
 					<a href="/">Активные голосования</a>
 					<ul>
 						<li>dropdown list</li>
+						<li>dropdown list</li>
+						<li>dropdown list</li>
+						<li>dropdown list</li>
 					</ul>
 				</li>
 				<li>
 					<a href="/archive">Архив голосований</a>
 					<ul>
+						<li>dropdown list</li>
+						<li>dropdown list</li>
+						<li>dropdown list</li>
 						<li>dropdown list</li>
 					</ul>
 				</li>

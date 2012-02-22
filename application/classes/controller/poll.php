@@ -1,10 +1,30 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
+function getRegion()
+{
+	$session = Session::instance();
+	if(!($region = $session->get('region',false)))
+	{
+		$ip = $_SERVER['REMOTE_ADDR'];
+		$q = "http://ipgeobase.ru:7020/geo?ip=$ip";
+		$xml = file_get_contents($q);
+		$response = new SimpleXMLElement($xml);
+		$region_name = $response->ip->region;
+		$region = ORM::factory('region')
+			->where('name','=',$region_name)
+			->find();
+		$session->set('region',$region);
+	}
+	return $region;
+}
+
 class Controller_Poll extends Controller_Template
 {
 	
 	public function action_actual()
 	{
+		$this->template->region = getRegion();
+		
 		// create view instance
 		$view = View::factory('poll/list');
 		//
@@ -19,12 +39,13 @@ class Controller_Poll extends Controller_Template
 			->or_where_close()
 			->order_by('start_date','desc')
 			->find_all();
-
+			
 		$this->template->title = 'Актуальные голосования';
 		$this->template->content = $view;
 	}
 	public function action_archive()
 	{
+		$this->template->region = getRegion();
 		// create view instance
 		$view = View::factory('poll/list');
 		//
@@ -42,6 +63,7 @@ class Controller_Poll extends Controller_Template
 	}
 	public function action_future()
 	{
+		$this->template->region = getRegion();
 		// create view instance
 		$view = View::factory('poll/list');
 		//
@@ -56,6 +78,7 @@ class Controller_Poll extends Controller_Template
 	}
 	public function action_poll()
 	{
+		$this->template->region = getRegion();
 		$id = $this->request->param('id');
 		$view = $this->request->param('view');
 		$this->template->nt = isset($_GET['nt']);
@@ -73,15 +96,15 @@ class Controller_Poll extends Controller_Template
 		$view->poll = $poll;
 			
 		//render view
-    $region_count = $poll->regions->count_all();
-    $view->region_count = $region_count;
-    if($region_count == 1)
-    {
-      $region = $poll->regions->find();
-      $this->template->title = ($poll->title . ', '. $region->name);
-    }
-    else
-      $this->template->title = $poll->title;
+		$region_count = $poll->regions->count_all();
+		$view->region_count = $region_count;
+		if($region_count == 1)
+		{
+			$region = $poll->regions->find();
+			$this->template->title = ($poll->title . ', '. $region->name);
+		}
+		else
+			$this->template->title = $poll->title;
       
 		$this->template->content = $view;
 	}

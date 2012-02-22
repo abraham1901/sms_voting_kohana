@@ -1,63 +1,126 @@
+
+/*
+.innertube{
+margin: 15px; /*Margins for inner DIV inside each DIV (to provide padding)* /
+} */
+
+* html body{ /*IE6 hack*/
+padding: 130px 0 110px 0; /*Set value to (HeightOfTopFrameDiv 0 HeightOfBottomFrameDiv 0)*/
+}
+
+* html #page{ /*IE6 hack*/
+height: 100%; 
+width: 100%; 
+}
+
 body {
 	background-color:#324894;
 	font-family: Verdana,Arial,sans-serif;
-  margin: 0;
-  overflow-x: hidden;
-  min-height: 100%;
+	overflow-x: hidden;
+	padding: 0;
+	border: 0;
+	overflow: hidden;
+	height: 100%; 
 }
 
-html {height: 100%}
+html {
+	height: 100%
+}
 
-#page {
-	margin:3em;
+#header, #footer{
+	position: absolute; 
+	top: 0; 
+	left: 0; 
+	width: 100%; 
+	height: 80px; /*Height of top frame div*/
+	overflow: hidden; /*Disable scrollbars. Set to "scroll" to enable*/
+}
+
+#footer{
+	top: auto;
+	bottom: 0; 
+	height: 34px; /*Height of bottom frame div*/
+	overflow: hidden; /*Disable scrollbars. Set to "scroll" to enable*/
+}
+
+#footer a {
+	height: 0;
 }
 
 #header {
   padding: 1em 5em 0;
 }
 
+#page{
+	margin-left:3em;
+	margin-right:3em;
+	margin-top:2em;
+	margin-bottom:2em;
+	position: fixed; 
+	top: 80px; /*Set top value to HeightOfTopFrameDiv*/
+	left: 0;
+	right: 0;
+	bottom: 34px; /*Set bottom value to HeightOfBottomFrameDiv*/
+	overflow: auto; 
+}
+
+#content, #left_column, #right_column, .poll_tabs{
+	height: 100%;
+	overflow: auto; 
+	position: relative;
+	top: 0px; /*Set top value to HeightOfTopFrameDiv*/
+	padding-bottom:0px;
+	margin-bottom: 0px; /*Set bottom value to HeightOfBottomFrameDiv*/
+}
+
 #left_column {
+	top:0px;
 	width:66%;
 	float:left;
 }
 
+.header{
+	padding: 1em;
+}
+
 #left_column > .header {
 	background-color:#404040;
-	padding: 1em;
-	font-size: 1.3em;
+	font-size: 1.1em;
 	font-weight: bold;
 	color: #ffffff;
 }
 
 #content {
+	bottom:63px;
 	background-color:#f0f0f0;
+	padding-bottom:0px;
+	overflow: auto;
+	margin-bottom: 0px; /*Set bottom value to HeightOfBottomFrameDiv*/
 }
 
 #right_column {
 	background-color:#6b6b6b;
 	width:33%;
+	color: #ffffff;
 	float:left;
 }
 
 #right_column > .header {
 	background-color:#343434;
-	padding: 1em;
-	color: #ffffff;
 }
 
 .poll_tabs {
+	font-size: 1em;
 	border:0px;
 	padding:0em;
 }
 
-#footer {
-  clear: both;
-  padding-top: 2px;
-  height: 34px;
-  margin-top: -36px;
-  width: auto;
+.ui-tabs .ui-tabs-nav {
+	padding: 0em 0em 0;
+	border:0px;
 }
-#footer a {height: 0;}
-#page {padding-bottom: 36px;}
 
-#footer {padding-left: 3em; padding-right: 3em; }
+.ui-tabs .ui-tabs-nav li {
+	font-size: 1.1em;
+	border: 0px none;
+}

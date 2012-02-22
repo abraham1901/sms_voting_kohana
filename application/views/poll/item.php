@@ -1,9 +1,3 @@
-	<!-- ul>
-		<li><a href="/poll/<?=$poll->id?>/description">Описание</a></li>
-		<li><a href="/poll/<?=$poll->id?>/answers">Голосование</a></li>
-		<li><a href="/poll/<?=$poll->id?>/regions">Регионы</a></li>
-		<li><a href="/poll/<?=$poll->id?>/log">Лог голосования</a></li>
-	</ul -->
 <div id="poll_<?=$poll->id?>_tabs" class="poll_tabs">
 	<ul>
 		<li><a href="#poll_<?=$poll->id?>_tabs_description">Описание</a></li>
