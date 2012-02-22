@@ -22,21 +22,24 @@ class Controller_Poll extends Controller_Template
 {
 	
 	public function action_actual()
-	{
-		$this->template->region = getRegion();
-		
+	{		
+		//$this->template->region = getRegion();
+		$region = getRegion();
 		// create view instance
 		$view = View::factory('poll/list');
 		//
 		$timestamp = date('Y-m-d H:i:s', time());
 		
 		$view->polls = ORM::factory('poll')
+			->join('polls_regions','left')
+			->on('polls_regions.poll_id','=', DB::expr('poll.id'))
 			->where('active','=',1)
 			->where('start_date','<=',$timestamp)
 			->or_where_open()
 			->where('end_date','>',$timestamp)
 			->where('end_date','=',null)
 			->or_where_close()
+			->where('polls_regions.region_id','=',$region->id)
 			->order_by('start_date','desc')
 			->find_all();
 			
@@ -45,7 +48,6 @@ class Controller_Poll extends Controller_Template
 	}
 	public function action_archive()
 	{
-		$this->template->region = getRegion();
 		// create view instance
 		$view = View::factory('poll/list');
 		//
@@ -63,7 +65,6 @@ class Controller_Poll extends Controller_Template
 	}
 	public function action_future()
 	{
-		$this->template->region = getRegion();
 		// create view instance
 		$view = View::factory('poll/list');
 		//
@@ -78,7 +79,6 @@ class Controller_Poll extends Controller_Template
 	}
 	public function action_poll()
 	{
-		$this->template->region = getRegion();
 		$id = $this->request->param('id');
 		$view = $this->request->param('view');
 		$this->template->nt = isset($_GET['nt']);

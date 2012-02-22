@@ -30,9 +30,11 @@ if(!$nt)
 	<div id="header">
     <div id="logo">
       <img src="/static/images/eg_logo.png" alt='Электронные голосования' title='Электронные голосования'>
-      Region: <?=$region->name?>
+      <?php
+      //echo Request::factory('widget_region')->execute();
+      ?>
     </div>
-		<div id="menu">
+		<!-- div id="menu">
 			<ul id="main_menu">
 				<li>
 					<a href="/future">Будущие голосования</a>
@@ -71,7 +73,7 @@ if(!$nt)
 					</ul>
 				</li>
 			</ul>
-		</div>
+		</div -->
 	</div>
 	<div id="page">
 		<div id="left_column">
