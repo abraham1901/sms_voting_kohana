@@ -30,7 +30,7 @@ if(!$nt)
 	<div id="header">
     <div id="logo">
       <img src="/static/images/eg_logo.png" alt='Электронные голосования' title='Электронные голосования'>
-      Region: <?=$region?>
+      Region: <?=$region->name?>
     </div>
 		<div id="menu">
 			<ul id="main_menu">
