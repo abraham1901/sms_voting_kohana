@@ -33,7 +33,7 @@
 	?>		
 	</tbody>
 </table>
-<div id="poll_<?=$poll->id?>_vote_form">
+<div id="poll_<?=$poll->id?>_vote_form" class="poll_vote_form">
 	Для того чтобы подтвердить ваш голос, введите номер вашего телефона:<br/>
 	+7 (<input type="text" id="poll_<?=$poll->id?>_vote_phone_code" size="3" disabled="disabled"/>) - <input type="text" id="poll_<?=$poll->id?>_vote_phone_number" size="7" disabled="disabled"/>
 	<button id="poll_<?=$poll->id?>_vote_button_get_code" disabled="disabled">ПОЛУЧИТЬ КОД</button><br/>

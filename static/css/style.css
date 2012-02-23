@@ -123,6 +123,13 @@ input:disabled{
 	padding:0em;
 }
 
+.poll_vote_form{
+	position:absolute;
+	bottom:3.1em;
+	left:1em;
+	width:100%;
+}
+
 .ui-tabs .ui-tabs-nav {
 	padding: 0em 0em 0;
 	border:0px;
