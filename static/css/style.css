@@ -130,9 +130,11 @@ input:disabled{
 
 .dataTable tr {
   font-size: 0.8em;
-  line-height: 0;
+  /* line-height: 0;*/
 } 
 
+/*
 .dataTables_wrapper {
   padding-bottom: 1em;
 }
+* /

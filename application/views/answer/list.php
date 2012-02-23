@@ -21,8 +21,8 @@
 					data-max_answers="<?=$poll->max_answers_per_vote?>"/>
 			</td>
 			<td width="100%">
-				<?= ($answer->url)?"<a href=\"{$answer->url}\" target=\"_blank
-\">{$answer->title}</a>":$answer->title ?>
+				<?=$answer->title?><?=($answer->url)?" <a href=\"{$answer->url}\" target=\"_blank
+\">info</a>":''?>
 			</td>
 			<td>
 				<h3><?=$answer->rating?></h3>
@@ -45,12 +45,13 @@
 	//dataTables: http://datatables.net/index
 	$('#poll_<?=$poll->id?>_answers_table').dataTable(
 		{
+			"sScrollY": "500px", // pashukhin - она по-другому не скроллится, вроде как
 			"bPaginate": false,
 			"bInfo": false,
 			"aaSorting": [[ 2, "desc" ]],
 			"oLanguage":
 			{
-				"sSearch": "Поиск",
+				"sSearch": "Поиск кандидатов",
 				"sLengthMenu": "Показывать _MENU_ записей на стреницу",
 				"sZeroRecords": "Не найдено",
 				"sInfo": "Записи с _START_ по _END_ из _TOTAL_",
