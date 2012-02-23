@@ -21,7 +21,8 @@
 					data-max_answers="<?=$poll->max_answers_per_vote?>"/>
 			</td>
 			<td width="100%">
-				<?=$answer->title?>
+				<?= ($answer->url)?"<a href=\"{$answer->url}\" target=\"_blank
+\">{$answer->title}</a>":$answer->title ?>
 			</td>
 			<td>
 				<h3><?=$answer->rating?></h3>
@@ -33,18 +34,11 @@
 	</tbody>
 </table>
 <div id="poll_<?=$poll->id?>_vote_form">
-	<div id="poll_<?=$poll->id?>_vote_phone_container">
-		Введите номер телефона, чтобы проголосовать: +7 (
-		<input type="text" id="poll_<?=$poll->id?>_vote_phone_code" size="3" disabled="disabled"/>
-		) -
-		<input type="text" id="poll_<?=$poll->id?>_vote_phone_number" size="7" disabled="disabled"/>
-		<button id="poll_<?=$poll->id?>_vote_button_get_code" disabled="disabled">Получить код</button>
-	</div>
-	<div id="poll_<?=$poll->id?>_vote_code_container">
-		Код подтверждения:
-		<input type="text" id="poll_<?=$poll->id?>_vote_code" size="8" disabled="disabled"/>
-		<button id="poll_<?=$poll->id?>_vote_button" disabled="disabled">Подтвердить голос</button>
-	</div>
+	Для того чтобы подтвердить ваш голос, введите номер вашего телефона:<br/>
+	+7 (<input type="text" id="poll_<?=$poll->id?>_vote_phone_code" size="3" disabled="disabled"/>) - <input type="text" id="poll_<?=$poll->id?>_vote_phone_number" size="7" disabled="disabled"/>
+	<button id="poll_<?=$poll->id?>_vote_button_get_code" disabled="disabled">ПОЛУЧИТЬ КОД</button><br/>
+	Введите полученный код:<br/>
+	<input type="text" id="poll_<?=$poll->id?>_vote_code" size="8" disabled="disabled"/> <button id="poll_<?=$poll->id?>_vote_button" disabled="disabled">ГОЛОСОВАТЬ!</button>
 </div>
 <script>
 	$("input:checkbox").bind("change",check_max_answers_per_vote);
