@@ -10,7 +10,6 @@
 	<?php
 	foreach($answers as $answer)
 	{
-		//echo View::factory('answer/item')->bind('answer', $answer);
 		?>
 		<tr>
 			<td>
@@ -39,16 +38,16 @@
 		<input type="text" id="poll_<?=$poll->id?>_vote_phone_code" size="3"/>
 		) -
 		<input type="text" id="poll_<?=$poll->id?>_vote_phone_number" size="7"/>
+		<button id="poll_<?=$poll->id?>_vote_button_get_code" onclick="vote(<?=$poll->id?>);" data-poll_id="<?=$poll->id?>" style="display:none;">Получить код</button>
 	</div>
 	<div id="poll_<?=$poll->id?>_vote_code_container" style="display:none; float:left;">
 		Код подтверждения:
 		<input type="text" id="poll_<?=$poll->id?>_vote_code" size="8"/>
+		<button id="poll_<?=$poll->id?>_vote_button" onclick="vote(<?=$poll->id?>);" data-poll_id="<?=$poll->id?>" style="display:none;">Подтвердить голос</button>
 	</div>
-	<button id="poll_<?=$poll->id?>_vote_button" onclick="vote(<?=$poll->id?>);" data-poll_id="<?=$poll->id?>" style="display:none;">Получить код</button>
 </div>
 <script>
 	$("input:checkbox").bind("change",check_max_answers_per_vote);
-	$('button').button();
 	$('#poll_<?=$poll->id?>_answers_table').dataTable(
 		{
 			"sScrollY": "500px",
@@ -66,10 +65,10 @@
 			}
 		}
     );
-	$('#poll_<?=$poll->id?>_vote_button').button('disable');
 	$("#poll_<?=$poll->id?>_vote_phone_code").mask(
 		"999",
 		{
+			placeholder:" ",
 			completed:function()
 			{
 				$('#poll_<?=$poll->id?>_vote_phone_number').focus();
@@ -79,11 +78,69 @@
 	$("#poll_<?=$poll->id?>_vote_phone_number").mask(
 		"9999999",
 		{
+			placeholder:" ",
 			completed:function()
 			{
-				$('#poll_<?=$poll->id?>_vote_button').show();
+				$('#poll_<?=$poll->id?>_vote_button_get_code').show();			
+				$('#poll_<?=$poll->id?>_vote_button_get_code').focus();
 			}
 		}
 	);
-	$("#poll_<?=$poll->id?>_vote_code").mask("99999999");
+	$("#poll_<?=$poll->id?>_vote_code").mask(
+		"99999999",
+		{
+			placeholder:" ",
+			completed:function()
+			{
+				$('#poll_<?=$poll->id?>_vote_button').show();			
+				$('#poll_<?=$poll->id?>_vote_button').focus();
+			}
+		}
+	);
+	//$('#poll_<?=$poll->id?>_vote_button_get_code').button();
+	$('#poll_<?=$poll->id?>_vote_button_get_code').button().click(
+		function()
+		{
+			$('#poll_<?=$poll->id?>_vote_phone_container').hide();
+			$.ajax(
+				{
+					url: '/ajax/get_pin_code',
+					data:
+						{
+							phone:
+								'7'+
+								$('#poll_<?=$poll->id?>_vote_phone_code').val() +
+								$("#poll_<?=$poll->id?>_vote_phone_number").val(),
+							poll_id: <?=$poll->id?>,
+						},
+					dataType:'json',
+					type:'POST',
+					success: function(data)
+					{
+						if(data.success || data.errorcode == 7)
+						{
+							$('#poll_<?=$poll->id?>_vote_code_container').show();
+							$('#poll_<?=$poll->id?>_vote_code').focus();
+							if(data.error)
+								alert(data.error);
+							else
+								alert(data.result.message);
+						}
+						else
+						{
+							alert(data.error);
+							if(data.errorcode < 3 || data.errorcode > 6)
+							{
+								$('#poll_<?=$poll->id?>_vote_phone_container').show();
+								$('#poll_<?=$poll->id?>_vote_phone_code').focus();
+							}
+						}
+					}
+				}
+			);
+		}
+	);
+	
+	/*
+	*/
 </script>
