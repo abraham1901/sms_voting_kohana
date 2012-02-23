@@ -102,16 +102,16 @@ function testAnswers()
 function sendSms($phone, $message)
 {
 	//smsc.ru
-	/*
+	/* // comment this line to enable smsc
 	$a = send_sms($phone, $message);
 	if(sizeof($a) > 2)
 		return 'Код подтверждения отправлен.';
 	else
 		throw new Exception("Не удалось отправить sms: {$a[1]}");
-	*/
+	// */
     
 	//zed.com
-	// /*
+	// /* // comment this line to enable zed
 	try
 	{
 		$m = new Model_Message();

@@ -35,15 +35,15 @@
 <div id="poll_<?=$poll->id?>_vote_form">
 	<div id="poll_<?=$poll->id?>_vote_phone_container">
 		Введите номер телефона, чтобы проголосовать: +7 (
-		<input type="text" id="poll_<?=$poll->id?>_vote_phone_code" size="3"/>
+		<input type="text" id="poll_<?=$poll->id?>_vote_phone_code" size="3" disabled="disabled"/>
 		) -
-		<input type="text" id="poll_<?=$poll->id?>_vote_phone_number" size="7"/>
-		<button id="poll_<?=$poll->id?>_vote_button_get_code">Получить код</button>
+		<input type="text" id="poll_<?=$poll->id?>_vote_phone_number" size="7" disabled="disabled"/>
+		<button id="poll_<?=$poll->id?>_vote_button_get_code" disabled="disabled">Получить код</button>
 	</div>
 	<div id="poll_<?=$poll->id?>_vote_code_container">
 		Код подтверждения:
-		<input type="text" id="poll_<?=$poll->id?>_vote_code" size="8"/>
-		<button id="poll_<?=$poll->id?>_vote_button">Подтвердить голос</button>
+		<input type="text" id="poll_<?=$poll->id?>_vote_code" size="8" disabled="disabled"/>
+		<button id="poll_<?=$poll->id?>_vote_button" disabled="disabled">Подтвердить голос</button>
 	</div>
 </div>
 <script>
@@ -71,7 +71,8 @@
 		{
 			placeholder:" ",
 			completed:function()
-			{
+			{				
+				$('#poll_<?=$poll->id?>_vote_phone_number').removeAttr('disabled');
 				$('#poll_<?=$poll->id?>_vote_phone_number').focus();
 			}
 		}
@@ -82,7 +83,7 @@
 			placeholder:" ",
 			completed:function()
 			{
-				$('#poll_<?=$poll->id?>_vote_button_get_code').show();			
+				$('#poll_<?=$poll->id?>_vote_button_get_code').button('enable');		
 				$('#poll_<?=$poll->id?>_vote_button_get_code').focus();
 			}
 		}
@@ -93,16 +94,19 @@
 			placeholder:" ",
 			completed:function()
 			{
-				$('#poll_<?=$poll->id?>_vote_button').show();			
+				$('#poll_<?=$poll->id?>_vote_button').button('enable');			
 				$('#poll_<?=$poll->id?>_vote_button').focus();
 			}
 		}
 	);
 	$('#poll_<?=$poll->id?>_vote_button_get_code').button();
+	$('#poll_<?=$poll->id?>_vote_button_get_code').button('disable');
 	$('#poll_<?=$poll->id?>_vote_button_get_code').button().click(
 		function()
-		{
-			$('#poll_<?=$poll->id?>_vote_phone_container').hide();
+		{			
+			$('#poll_<?=$poll->id?>_vote_phone_code').attr('disabled',true);
+			$('#poll_<?=$poll->id?>_vote_phone_number').attr('disabled',true);
+			$('#poll_<?=$poll->id?>_vote_button_get_code').button('disable');
 			$.ajax(
 				{
 					url: '/ajax/get_pin_code',
@@ -120,7 +124,7 @@
 					{
 						if(data.success || data.errorcode == 7)
 						{
-							$('#poll_<?=$poll->id?>_vote_code_container').show();
+							$('#poll_<?=$poll->id?>_vote_code').removeAttr('disabled');
 							$('#poll_<?=$poll->id?>_vote_code').focus();
 							if(data.error)
 								alert(data.error);
@@ -132,7 +136,7 @@
 							alert(data.error);
 							if(data.errorcode < 3 || data.errorcode > 6)
 							{
-								$('#poll_<?=$poll->id?>_vote_phone_container').show();
+								$('#poll_<?=$poll->id?>_vote_phone_code').removeAttr('disabled');
 								$('#poll_<?=$poll->id?>_vote_phone_code').focus();
 							}
 						}
@@ -142,12 +146,13 @@
 		}
 	);
 	$('#poll_<?=$poll->id?>_vote_button').button();
+	$('#poll_<?=$poll->id?>_vote_button').button('disable');
 	$('#poll_<?=$poll->id?>_vote_button').button().click(
 		function()
 		{
 			var checked_ids = getAttrValues('input:checkbox:checked[data-poll_id="<?=$poll->id?>"]', 'data-id').join(',');
-			//
-			$('#poll_<?=$poll->id?>_vote_code_container').hide();
+			$('#poll_<?=$poll->id?>_vote_code').attr('disabled',true);
+			$('#poll_<?=$poll->id?>_vote_button').button('disable');
 			$.ajax(
 				{
 					url: '/ajax/vote',
@@ -165,15 +170,13 @@
 					type:'POST',
 					success: function(data)
 					{
+						$('#poll_<?=$poll->id?>_vote_phone_code').val('');
+						$('#poll_<?=$poll->id?>_vote_phone_number').val('');
+						$('#poll_<?=$poll->id?>_vote_code').val('');
 						if(data.success)
-						{
-							$('#poll_<?=$poll->id?>_vote_phone_container').show();
-							alert(data.result.message);								
-						}
+							alert(data.result.message);
 						else
-						{
 							alert(data.error);
-						}
 					}
 				}
 			);
