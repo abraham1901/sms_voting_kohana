@@ -36,8 +36,8 @@ if(!$nt)
 			//echo Request::factory('widget_region')->execute();
 			?>
 		</div>
+		<!-- main menu: http://labs.makotokw.com/en/jquery/ui_potato_menu -->
 		<!-- div id="menu">
-			<!-- main menu: http://labs.makotokw.com/en/jquery/ui_potato_menu -->
 			<ul id="main_menu">
 				<li>
 					<a href="/future">Будущие голосования</a>
