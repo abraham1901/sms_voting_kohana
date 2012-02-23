@@ -32,18 +32,18 @@
 	?>		
 	</tbody>
 </table>
-<div id="poll_<?=$poll->id?>_vote_form" style="display: none;">
-	<div id="poll_<?=$poll->id?>_vote_phone_container" style="float:left;">
+<div id="poll_<?=$poll->id?>_vote_form">
+	<div id="poll_<?=$poll->id?>_vote_phone_container">
 		Введите номер телефона, чтобы проголосовать: +7 (
 		<input type="text" id="poll_<?=$poll->id?>_vote_phone_code" size="3"/>
 		) -
 		<input type="text" id="poll_<?=$poll->id?>_vote_phone_number" size="7"/>
-		<button id="poll_<?=$poll->id?>_vote_button_get_code" style="display:none;">Получить код</button>
+		<button id="poll_<?=$poll->id?>_vote_button_get_code">Получить код</button>
 	</div>
-	<div id="poll_<?=$poll->id?>_vote_code_container" style="display:none; float:left;">
+	<div id="poll_<?=$poll->id?>_vote_code_container">
 		Код подтверждения:
 		<input type="text" id="poll_<?=$poll->id?>_vote_code" size="8"/>
-		<button id="poll_<?=$poll->id?>_vote_button" style="display:none;">Подтвердить голос</button>
+		<button id="poll_<?=$poll->id?>_vote_button">Подтвердить голос</button>
 	</div>
 </div>
 <script>
