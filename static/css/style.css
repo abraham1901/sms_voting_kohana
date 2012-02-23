@@ -93,7 +93,7 @@ html {
 #content {
 	/* bottom:63px; */
 	margin-top:3.1em;
-	/* margin-bottom:3.1em; */
+	padding-bottom:3.1em;
 	background-color:#f0f0f0;
 	/* padding-bottom:0px; */
 	overflow: hidden; 
