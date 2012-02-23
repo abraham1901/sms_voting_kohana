@@ -52,10 +52,7 @@ html {
 }
 
 #page{
-	margin-left:3em;
-	margin-right:3em;
-	margin-top:2em;
-	margin-bottom:2em;
+	margin: 0 3em;
 	position: fixed; 
 	top: 80px; /*Set top value to HeightOfTopFrameDiv*/
 	left: 0;
