@@ -45,7 +45,6 @@
 	//dataTables: http://datatables.net/index
 	$('#poll_<?=$poll->id?>_answers_table').dataTable(
 		{
-			"sScrollY": "500px",
 			"bPaginate": false,
 			"bInfo": false,
 			"aaSorting": [[ 2, "desc" ]],
