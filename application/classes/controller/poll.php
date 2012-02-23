@@ -31,7 +31,7 @@ class Controller_Poll extends Controller_Template
 		$timestamp = date('Y-m-d H:i:s', time());
 		
 		//$view->polls = ORM::factory('poll')
-		$polls = ORM::factory('poll')
+		$poll = ORM::factory('poll')
 			->join('polls_regions','left')
 			->on('polls_regions.poll_id','=', DB::expr('poll.id'))
 			->where('active','=',1)
@@ -43,9 +43,9 @@ class Controller_Poll extends Controller_Template
 			->where('polls_regions.region_id','=',$region->id)
 			->order_by('start_date','desc')
 			//->find_all();
-			->find_all();
+			->find();
 
-		if(count($polls))
+		if(count($poll))
 		{
 			//render view
 			$view = View::factory('poll/item');
