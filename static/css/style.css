@@ -103,10 +103,12 @@ html {
 	width:33%;
 	color: #ffffff;
 	float:left;
+	font-size: 0.8em;
 }
 
 #right_column > .header {
 	background-color:#343434;
+	font-size: 1.2em;
 }
 
 .poll_tabs {

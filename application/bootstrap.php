@@ -154,8 +154,10 @@ Route::set('about_faq', 'about/faq') //'(<controller>(/<action>(/<id>)))'
 		'controller' => 'about',
 		'action'     => 'faq',
 	));
+	/*
 Route::set('widget', '<controller>(/<action>)',array('controller'=>'widget_\w+')) //'(<controller>(/<action>(/<id>)))'
 	->defaults(array(
 		'controller' => 'widget',
 		'action'     => 'index',
 	));
+	* */

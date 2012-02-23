@@ -13,8 +13,9 @@ if(!$nt)
 		<link rel="stylesheet" href="/static/css/jquery-ui.css">
 		<link rel="stylesheet" href="/static/css/theme/jquery-ui.css">
 		<link rel="stylesheet" href="/static/css/valid8.css">
-		<link rel="stylesheet" href="/static/css/jquery.ui.potato.menu.css">
-		<!-- from http://labs.makotokw.com/en/jquery/ui_potato_menu -->
+		<!-- link rel="stylesheet" href="/static/css/jquery.ui.potato.menu.css" -->
+		<!-- from http://labs.makotokw.com/en/jquery/ui_potato_menu -->		
+		<link rel="stylesheet" href="/static/js/DataTables-1.9.0/media/css/jquery.dataTables.css">
 		<link rel="stylesheet" href="/static/css/style.css">
 		<!--[if lt IE 9]><script src="/static/js/html5.js"></script><![endif]-->
 		<script src="/static/js/jquery-1.7.1.min.js"></script>
@@ -23,17 +24,20 @@ if(!$nt)
 		<script src="/static/js/jquery.valid8.js"></script>
 		<script src="/static/js/jquery.sorting.js"></script>
 		<script src="/static/js/jquery.scrollTo-min.js"></script>
-		<script src="/static/js/jquery.ui.potato.menu-min.js"></script>	
+		<!-- script src="/static/js/jquery.ui.potato.menu-min.js"></script -->	
+		<script src="/static/js/DataTables-1.9.0/media/js/jquery.dataTables.min.js"></script>
 		<script src="/static/js/voting.js"></script>
 </head>
 <body>
 	<div id="header">
-    <div id="logo">
-      <img src="/static/images/eg_logo.png" alt='Электронные голосования' title='Электронные голосования'>
-      <?php
-      //echo Request::factory('widget_region')->execute();
-      ?>
-    </div>
+		<div id="logo">
+			<a href="/">
+				<img src="/static/images/eg_logo.png" alt='Электронные голосования' title='Электронные голосования'>
+			</a>
+			<?php
+			//echo Request::factory('widget_region')->execute();
+			?>
+		</div>
 		<!-- div id="menu">
 			<ul id="main_menu">
 				<li>
@@ -106,47 +110,26 @@ if(!$nt)
 			</div>
 			<div class="header">О ПРОЕКТЕ</div>
 			<div>
-				бла-бла-бла
+				<p>
+					проект разрабатывается группой энтузиастов<br/>
+					<a href="http://www.facebook.com/groups/egolosovanie.dev/">facebook.com/groups/egolosovanie.dev</a><br/>
+					из Рабочей группы Электронной демократии<br/>
+					<a href="http://www.facebook.com/groups/eldem/">facebook.com/groups/eldem</a>
+				</p>
+				<p>
+					<a href="/about/faq">Часто задаваемые вопросы</a>
+				</p>
 			</div>
 			<div class="not_for_profit">
 				<table border="0" cellpadding="0" cellspacing="0"><tr><td><div style="padding: 0.6em; background-color: #DAE6F2; border: 1px solid #B8CFE6; border-radius: 7px; -moz-border-radius: 7px;"><a href="https://money.yandex.ru/embed/?from=sbal" title="Виджеты Яндекс.Денег" style="width: 200px; height: 100px; display: block; margin-bottom: 0.6em; background: url('https://money.yandex.ru/share-balance.xml?id=153598173&key=0006EE96EE457DEA') 0 0 no-repeat; -background: none; -filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='https://money.yandex.ru/share-balance.xml?id=153598173&key=0006EE96EE457DEA', sizingMethod = 'crop');"></a><form action="https://money.yandex.ru/direct-payment.xml" method="post"><input type="hidden" name="receiver" value="410011287869310"/><input type="hidden" name="sum" value="0"/><input type="hidden" name="destination" value="Яндекс.Деньги &#8212; на хорошее дело не жалко!"/><input type="hidden" name="FormComment" value="Пожертвование через виджет &#171Мой баланс&#187;"/><input type="submit" value="Поддержать проект" style="margin-top: 0.6em; width: 100%;"/></form></div></td></tr></table>
 			</div>
 		</div>
 	</div>
-	<div id="footer">
-		<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">
-			<img src='/static/images/CC-BY-NC-SA.png' alt='Лицензионное соглашение' title='Лицензионное соглашение'>
-		</a>
-	</div>
-	</div>
-	<div id="poll_dialog" style="display:none" title="Голо сование :)">
-		<!-- внезапно правая колонка -->
-		<input type="hidden" id="poll_id" value=""/>
-		<input type="hidden" id="answer_ids" value=""/>
-		<div id="step0">
-			<h3>Ваш выбор:</h3>
-			<ul id="choise_list"></ul>
-			<!-- captcha here!!! -->
-			<button id="step0_button">Да, я в здравом уме и твердой памяти</button>
+		<div id="footer">
+			<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">
+				<img src='/static/images/CC-BY-NC-SA.png' alt='Лицензионное соглашение' title='Лицензионное соглашение'>
+			</a>
 		</div>
-		<div id="step1" class="form" style="display:none;">
-			<p>
-				<label for="phone">Введите номер вашего сотового телефона</label>
-				<span class="w">
-					<input class="input" type="tel" id="phone" name="phone" placeholder="Номер телефона" required/>
-				</span>
-			</p>
-			<button id="step1_button">Получить код подтверждения</button>
-		</div>
-		<div id="step2" class="form" style="display:none;">
-			<p>
-				<label for="code">Введите код подтверждения</label>
-				<span class="w">
-					<input class="input" type="text" id="code" name="code" placeholder="Код подтверждения" required/>
-				</span>
-			</p>
-			<button id="step2_button">Да, я человек, и это мой голос!</button>
-		</div>	
 	</div>
 </body>
 <script type="text/javascript">

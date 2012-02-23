@@ -9,12 +9,19 @@ function check_max_answers_per_vote()
 	var poll_id = $(this).attr('data-poll_id');
 	var max_answers = parseInt($(this).attr('data-max_answers'));
 	var checked_count = $('input:checkbox:checked[data-poll_id="'+poll_id+'"]').length;
-	$('button[data-poll_id="'+poll_id+'"]').button(checked_count?"enable":"disable");
+	//$('button[data-poll_id="'+poll_id+'"]').button(checked_count?"enable":"disable");
 	var checkboxes = $('input:checkbox:not(:checked)[data-poll_id="'+poll_id+'"]');
-	if(checked_count >= max_answers)
-		checkboxes.each(function(){$(this).attr("disabled",true);})
+	if(checked_count)
+		$('#poll_'+poll_id+'_vote_form').show();
 	else
-		checkboxes.each(function(){$(this).removeAttr("disabled");})							
+		$('#poll_'+poll_id+'_vote_form').hide();
+	if(checked_count >= max_answers)
+	{
+		$('#poll_'+poll_id+'_vote_phone_code').focus();
+		checkboxes.each(function(){$(this).attr("disabled",true);})
+	}
+	else
+		checkboxes.each(function(){$(this).removeAttr("disabled");});
 }
 // voting		
 function vote(poll_id)
@@ -110,149 +117,23 @@ function vote_step3()
 		}
 	);
 }
-// validators
-function testPhone(values)
-{
-	if(/^\+7\s\(\d{3}\)\s\d{3}-\d{2}-\d{2}$/.test(values.phone))
-	{
-		$('#step1_button').button('enable');
-		return {valid: true};
-	}
-	else
-	{
-		$('#step1_button').button('disable');
-		return {valid: false, message: "Введите номер телефона в формате '+7 (999) 999-99-99'"};
-	}
-}
-function testCode(values)
-{
-	if(/^\d{8}$/.test(values.code))
-	{
-		$('#step2_button').button('enable');
-		return {valid: true};
-	}
-	else
-	{
-		$('#step2_button').button('disable');
-		return {valid: false, message: "Код подтверждения должен состоять ровно из восьми цифр"};
-	}
-}
-// polls accordion content loader
-function poll_accordion_content_loader(event, ui)
-{
-	if(ui.newContent.html()=="")
-		ui.newContent.load('/poll/'+ui.newContent.attr('data-poll_id')+'?nt=1');
-}			
-// make ui accordion
-function make_poll_accordion()
-{
-	var options = {
-		clearStyle:true,
-		collapsible:true,
-		icons: false,	
-		active:false,
-		change:poll_accordion_content_loader,
-		autoHeight: false,
-		//active: false,
-	}; 
-	$(this).accordion(options);
-}
-// search and scroll to answer
-function searchAnswer(poll_id)
-{
-	var str = $('#poll_'+poll_id+'_search').val();
-	var selector = 'div[data-poll_id='+poll_id+'][data-title*="'+str+'"]';
-	var answers = $(selector);
-	if(answers.length)
-		$("html,body").animate({scrollTop: $(answers.first()).offset().top}, 1000);
-	else
-		alert('Не удалось найти "'+str+'"');
-}
-//sort answers
-function sortAlphAsc(a, b)
-{
-	return $(a).attr('data-title') > $(b).attr('data-title') ? 1 : -1;
-}
-function sortRatingAsc(a, b)
-{
-	return $(a).attr('data-rating') > $(b).attr('data-rating') ? 1 : -1;
-}
-function sortAlphDesc(a, b)
-{
-	return $(a).attr('data-title') < $(b).attr('data-title') ? 1 : -1;
-}
-function sortRatingDesc(a, b)
-{
-	return $(a).attr('data-rating') < $(b).attr('data-rating') ? 1 : -1;
-}
-
-function sortAnswers()
-{
-	var poll_id = $(this).attr('data-poll_id');
-	var type = parseInt($('#poll_'+poll_id+'_sort').val());
-	var order = parseInt($('#poll_'+poll_id+'_sort_order').val());
-	var f = null;
-	switch(type+order)
-	{
-		case 0:
-			f = sortAlphAsc;
-			break;
-		case 1:
-			f = sortRatingAsc;
-			break;
-		case 2:
-			f = sortAlphDesc;
-			break;
-		case 3:
-			f = sortRatingDesc;
-			break;
-	};
-	if(f)
-	{
-		$('div[data-poll_id="'+poll_id+'"]').sortElements(f);
-	}
-}
 // go!
 $(document).ready(
 	function()
 	{
-		// enable checkboxses in accordion headers
-		//$(".accordion .accordion_header input").click(function(evt){evt.stopPropagation();});
-		// init ui components
-		// accordions
-		//$('.answer_list').each(make_accordion);
-		$('#main_menu').ptMenu();
-		$('.poll_list').each(make_poll_accordion);
+		//menu
+		//$('#main_menu').ptMenu();
 		// buttons
-		$('button').button();
-		$('button').button('disable');
-		$('#step0_button').button('enable');
-		$("#step0_button").button().click(vote_step1);
-		$("#step1_button").button().click(vote_step2);
-		$("#step2_button").button().click(vote_step3);
+		//$('button').button();
+		//$('button').button('disable');
+		//$('#step0_button').button('enable');
+		//$("#step0_button").button().click(vote_step1);
+		//$("#step1_button").button().click(vote_step2);
+		//$("#step2_button").button().click(vote_step3);
 		// checkboxes
-		$("input:checkbox").bind("change",check_max_answers_per_vote);
+		//$("input:checkbox").bind("change",check_max_answers_per_vote);
 		// inputs
-		$("#phone").mask("+7 (999) 999-99-99");
-		$('#phone').valid8(
-			{
-				'jsFunctions': [
-					{
-						function: testPhone, 
-						values: function() {return {phone: $('#phone').val()}}
-					}
-				]
-			}
-		);
-		$('#code').valid8(
-			{
-				'jsFunctions': [
-					{
-						function: testCode, 
-						values: function() {return {code: $('#code').val()}}
-					}
-				]
-			}
-		);
+		//$("#phone").mask("+7 (999) 999-99-99");
+		//$('#code').mask("99999999");
 	}
 );
