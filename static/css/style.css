@@ -127,3 +127,8 @@ input:disabled{
 	font-size: 1.1em;
 	border: 0px none;
 }
+
+.dataTable tr {
+  font-size: 0.8em;
+  line-height: 0;
+} 
