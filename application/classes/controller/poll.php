@@ -27,12 +27,11 @@ class Controller_Poll extends Controller_Template
 		$region = getRegion();
 		// create view instance
 		//$view = View::factory('poll/list');
-		$view = View::factory('poll/item');
 		//
 		$timestamp = date('Y-m-d H:i:s', time());
 		
 		//$view->polls = ORM::factory('poll')
-		$poll = ORM::factory('poll')
+		$polls = ORM::factory('poll')
 			->join('polls_regions','left')
 			->on('polls_regions.poll_id','=', DB::expr('poll.id'))
 			->where('active','=',1)
@@ -44,20 +43,30 @@ class Controller_Poll extends Controller_Template
 			->where('polls_regions.region_id','=',$region->id)
 			->order_by('start_date','desc')
 			//->find_all();
-			->find();
+			->find_all();
 
-		//render view
-		//$this->template->title = 'Актуальные голосования';
-		$region_count = $poll->regions->count_all();
-		$view->region_count = $region_count;
-		if($region_count == 1)
+		if(count($polls))
 		{
-			$region = $poll->regions->find();
-			$this->template->title = ($poll->title . ', '. $region->name);
+			//render view
+			$view = View::factory('poll/item');
+			//$this->template->title = 'Актуальные голосования';
+			$region_count = $poll->regions->count_all();
+			$view->region_count = $region_count;
+			if($region_count == 1)
+			{
+				$region = $poll->regions->find();
+				$this->template->title = ($poll->title . ', '. $region->name);
+			}
+			else
+				$this->template->title = $poll->title;
+			$view->poll = $poll;	
 		}
 		else
-			$this->template->title = $poll->title;
-		$view->poll = $poll;	
+		{
+			$this->template->title = 'Ничего не нашли';
+			$view = View::factory('poll/not_found');
+			$view->region = $region;
+		}
 		$this->template->content = $view;
 	}
 	public function action_archive()

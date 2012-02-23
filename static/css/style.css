@@ -74,6 +74,7 @@ html {
 	top:0px;
 	width:66%;
 	float:left;
+	overflow: hidden;
 }
 
 .header{
@@ -81,6 +82,8 @@ html {
 }
 
 #left_column > .header {
+	position: absolute;
+	width: 100%; 
 	background-color:#404040;
 	font-size: 1.1em;
 	font-weight: bold;
@@ -88,11 +91,13 @@ html {
 }
 
 #content {
-	bottom:63px;
+	/* bottom:63px; */
+	margin-top:3.1em;
+	margin-bottom:3.1em;
 	background-color:#f0f0f0;
-	padding-bottom:0px;
-	overflow: auto;
-	margin-bottom: 0px; /*Set bottom value to HeightOfBottomFrameDiv*/
+	/* padding-bottom:0px; */
+	overflow: hidden; 
+	/* padding-bottom: 63px; /*Set bottom value to HeightOfBottomFrameDiv*/
 }
 
 #right_column {
@@ -109,7 +114,7 @@ html {
 }
 
 input:disabled{
-	background-color:#888888;
+	background-color:#aaaaaa;
 }
 
 .poll_tabs {
