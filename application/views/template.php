@@ -12,19 +12,17 @@ if(!$nt)
 		<title>Электронные голосования<?=$title?" - $title":''?></title>
 		<link rel="stylesheet" href="/static/css/jquery-ui.css">
 		<link rel="stylesheet" href="/static/css/theme/jquery-ui.css">
-		<link rel="stylesheet" href="/static/css/valid8.css">
-		<!-- link rel="stylesheet" href="/static/css/jquery.ui.potato.menu.css" -->
-		<!-- from http://labs.makotokw.com/en/jquery/ui_potato_menu -->		
+		<!-- main menu: http://labs.makotokw.com/en/jquery/ui_potato_menu -->
+		<!-- link rel="stylesheet" href="/static/css/jquery.ui.potato.menu.css" -->	
 		<link rel="stylesheet" href="/static/js/DataTables-1.9.0/media/css/jquery.dataTables.css">
 		<link rel="stylesheet" href="/static/css/style.css">
 		<!--[if lt IE 9]><script src="/static/js/html5.js"></script><![endif]-->
 		<script src="/static/js/jquery-1.7.1.min.js"></script>
 		<script src="/static/js/jquery-ui-1.8.17.custom.min.js"></script>
 		<script src="/static/js/jquery.maskedinput.min.js"></script>
-		<script src="/static/js/jquery.valid8.js"></script>
-		<script src="/static/js/jquery.sorting.js"></script>
-		<script src="/static/js/jquery.scrollTo-min.js"></script>
-		<!-- script src="/static/js/jquery.ui.potato.menu-min.js"></script -->	
+		<!-- main menu: http://labs.makotokw.com/en/jquery/ui_potato_menu -->
+		<!-- script src="/static/js/jquery.ui.potato.menu-min.js"></script -->
+		<!-- dataTables: http://datatables.net/index -->
 		<script src="/static/js/DataTables-1.9.0/media/js/jquery.dataTables.min.js"></script>
 		<script src="/static/js/voting.js"></script>
 </head>
@@ -39,6 +37,7 @@ if(!$nt)
 			?>
 		</div>
 		<!-- div id="menu">
+			<!-- main menu: http://labs.makotokw.com/en/jquery/ui_potato_menu -->
 			<ul id="main_menu">
 				<li>
 					<a href="/future">Будущие голосования</a>

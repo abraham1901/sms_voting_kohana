@@ -126,6 +126,22 @@ CREATE TABLE IF NOT EXISTS `codes` (
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `messages`
+--
+
+DROP TABLE IF EXISTS `messages`;
+CREATE TABLE IF NOT EXISTS `messages` (
+  `id` int(11) NOT NULL auto_increment,
+  `created` double NOT NULL,
+  `phone` varchar(12) character set utf8 NOT NULL,
+  `message` varchar(255) character set utf8 NOT NULL,
+  PRIMARY KEY  (`id`),
+  KEY `created` (`created`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `networks`
 --
 

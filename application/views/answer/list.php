@@ -38,16 +38,17 @@
 		<input type="text" id="poll_<?=$poll->id?>_vote_phone_code" size="3"/>
 		) -
 		<input type="text" id="poll_<?=$poll->id?>_vote_phone_number" size="7"/>
-		<button id="poll_<?=$poll->id?>_vote_button_get_code" onclick="vote(<?=$poll->id?>);" data-poll_id="<?=$poll->id?>" style="display:none;">Получить код</button>
+		<button id="poll_<?=$poll->id?>_vote_button_get_code" style="display:none;">Получить код</button>
 	</div>
 	<div id="poll_<?=$poll->id?>_vote_code_container" style="display:none; float:left;">
 		Код подтверждения:
 		<input type="text" id="poll_<?=$poll->id?>_vote_code" size="8"/>
-		<button id="poll_<?=$poll->id?>_vote_button" onclick="vote(<?=$poll->id?>);" data-poll_id="<?=$poll->id?>" style="display:none;">Подтвердить голос</button>
+		<button id="poll_<?=$poll->id?>_vote_button" style="display:none;">Подтвердить голос</button>
 	</div>
 </div>
 <script>
 	$("input:checkbox").bind("change",check_max_answers_per_vote);
+	//dataTables: http://datatables.net/index
 	$('#poll_<?=$poll->id?>_answers_table').dataTable(
 		{
 			"sScrollY": "500px",
@@ -97,7 +98,7 @@
 			}
 		}
 	);
-	//$('#poll_<?=$poll->id?>_vote_button_get_code').button();
+	$('#poll_<?=$poll->id?>_vote_button_get_code').button();
 	$('#poll_<?=$poll->id?>_vote_button_get_code').button().click(
 		function()
 		{
@@ -140,7 +141,43 @@
 			);
 		}
 	);
+	$('#poll_<?=$poll->id?>_vote_button').button();
+	$('#poll_<?=$poll->id?>_vote_button').button().click(
+		function()
+		{
+			var checked_ids = getAttrValues('input:checkbox:checked[data-poll_id="<?=$poll->id?>"]', 'data-id').join(',');
+			//
+			$('#poll_<?=$poll->id?>_vote_code_container').hide();
+			$.ajax(
+				{
+					url: '/ajax/vote',
+					data:
+						{
+							phone: 
+								'7'+
+								$('#poll_<?=$poll->id?>_vote_phone_code').val() +
+								$("#poll_<?=$poll->id?>_vote_phone_number").val(),
+							poll_id: <?=$poll->id?>,
+							code: $('#poll_<?=$poll->id?>_vote_code').val(),
+							answers: checked_ids
+						},
+					dataType:'json',
+					type:'POST',
+					success: function(data)
+					{
+						if(data.success)
+						{
+							$('#poll_<?=$poll->id?>_vote_phone_container').show();
+							alert(data.result.message);								
+						}
+						else
+						{
+							alert(data.error);
+						}
+					}
+				}
+			);
+		}
+	);
 	
-	/*
-	*/
 </script>
