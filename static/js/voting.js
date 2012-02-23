@@ -12,9 +12,17 @@ function check_max_answers_per_vote()
 	//$('button[data-poll_id="'+poll_id+'"]').button(checked_count?"enable":"disable");
 	var checkboxes = $('input:checkbox:not(:checked)[data-poll_id="'+poll_id+'"]');
 	if(checked_count)
+	{
 		$('#poll_'+poll_id+'_vote_phone_code').removeAttr('disabled');
+	}
 	else
+	{
 		$('#poll_'+poll_id+'_vote_phone_code').attr('disabled',true);
+		$('#poll_'+poll_id+'_vote_phone_number').attr('disabled',true);
+		$('#poll_'+poll_id+'_vote_phone_code').val('');
+		$('#poll_'+poll_id+'_vote_phone_number').val('');
+		$('#poll_'+poll_id+'_vote_button_get_code').button('disable');
+	}
 	if(checked_count >= max_answers)
 	{
 		$('#poll_'+poll_id+'_vote_phone_code').focus();
