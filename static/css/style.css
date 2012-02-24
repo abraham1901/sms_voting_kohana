@@ -112,6 +112,10 @@ html {
 	font-size: 1.2em;
 }
 
+#right_column > div {
+	padding:1em;
+}
+
 input:disabled{
 	background-color:#aaaaaa;
 }
