@@ -16,9 +16,8 @@ body {
 	background-color:#324894;
 	font-family: Verdana,Arial,sans-serif;
 	overflow-x: hidden;
-	padding: 0;
 	border: 0;
-	padding: 130px 0 110px 0;
+	padding: 2em 2em 2em 2em;
 	/* overflow: hidden; */
 	/* height: 100%; */
 }
@@ -31,7 +30,7 @@ body {
 	/* position: absolute; */
 	/* top: 0; */
 	/* left: 0; */
-	width: 100%; 
+	/* width: 100%; */
 	height: 80px; /*Height of top frame div*/
 	/* overflow: hidden; /*Disable scrollbars. Set to "scroll" to enable*/
 }
@@ -79,7 +78,7 @@ body {
 
 .header{
 	padding: 1em;
-	width: 100%; 
+	/* width: 100%; */
 }
 
 #left_column > .header {
