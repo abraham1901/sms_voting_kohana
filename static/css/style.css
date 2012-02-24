@@ -30,8 +30,7 @@ body {
 
 #left_column > .header {
 	background-color:#404040;
-	font-size: 1.1em;
-	font-weight: bold;
+	font-size: 1.5em;
 	color: #ffffff;
 }
 
@@ -86,10 +85,14 @@ button:disabled{
 }
 
 button{
-	background-color: #009900 !important;
+	/* фон 444, цвет текста 3c3*/
+	background-color: #444 !important;
+	color: #3c3 !important;
+	/* background-color: #009900 !important; */
 }
 
 button:mouseover{
+	color: #444 !important;
 	background-color: #3c3 !important;
 }
 
