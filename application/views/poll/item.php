@@ -1,16 +1,16 @@
 <div id="poll_<?=$poll->id?>_tabs" class="poll_tabs">
 	<ul>
-		<li><a href="#poll_<?=$poll->id?>_tabs_answers">Голосование</a></li>
-		<li><a href="#poll_<?=$poll->id?>_tabs_description">Описание</a></li>
+		<li><a href="#poll_<?=$poll->id?>_tabs_answers">ГОЛОСОВАНИЕ</a></li>
+		<li><a href="#poll_<?=$poll->id?>_tabs_description">ОПИСАНИЕ</a></li>
 <?php
 if ($region_count > 1)
 { 
 ?>
-		<li><a href="#poll_<?=$poll->id?>_tabs_regions">Регионы</a></li>
+		<li><a href="#poll_<?=$poll->id?>_tabs_regions">РЕГИОНЫ</a></li>
 <?php
 }
 ?>
-		<li><a href="#poll_<?=$poll->id?>_tabs_log">Лог голосования</a></li>
+		<li><a href="#poll_<?=$poll->id?>_tabs_log">ЛОГ ГОЛОСОВАНИЯ</a></li>
 	</ul>
   <div class="poll_tab" id="poll_<?=$poll->id?>_tabs_answers">
     <?php echo View::factory('poll/answers')->bind('poll',$poll); ?>
