@@ -62,10 +62,6 @@ body {
 	margin: 2em;
 }
 
-/*
-фон: fff | f0f0f0 | fff, бордер: a0a0a0 | a0a0a0 | 009900
-*/
-
 input{
 	background-color:#ffffff;
 	border: 1px solid #a0a0a0;
@@ -77,24 +73,24 @@ input:disabled{
 }
 
 input:focus{
-	background-color:#ffffff;
+	background-color: #ffffff;
 	border: 1px solid #009900;
 	color: #009900;
 }
 
 button:disabled{
-	height: 24px;
-	font-size: 12px;
-	color: #fff;
-	background-color: #a0a0a0;
+	height: 24px !important;
+	font-size: 12px !important;
+	color: #fff !important;
+	background-color: #a0a0a0 !important;
 }
 
 button{
-	background-color: #009900;
+	background-color: #009900 !important;
 }
 
 button:mouseover{
-	background-color: #3c3;
+	background-color: #3c3 !important;
 }
 
 .green_link{
