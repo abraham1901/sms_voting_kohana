@@ -82,6 +82,21 @@ input:focus{
 	color: #009900;
 }
 
+button:disabled{
+	height: 24px;
+	font-size: 12px;
+	color: #fff;
+	background-color: #a0a0a0;
+}
+
+button{
+	background-color: #009900;
+}
+
+button:mouseover{
+	background-color: #3c3;
+}
+
 .green_link{
 	color:#00aa00;
 }
