@@ -97,6 +97,11 @@ button:mouseover{
 	color:#00aa00;
 }
 
+.rating{
+	font-size: 1em;
+	font-weight: bold;
+}
+
 .poll_tabs {
 	font-size: 1em;
 	border:0px;
