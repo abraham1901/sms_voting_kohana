@@ -6,13 +6,13 @@ body {
 	padding: 2em 2em 2em 2em;
 }
 
-#header, #footer{
+#header{
 	height: 80px;
 }
 
 #footer{
-	position: absolute;
-	bottom: 0; 
+	/* position: absolute;
+	bottom: 0; */
 	height: 34px;
 }
 
