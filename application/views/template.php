@@ -37,47 +37,6 @@ if(!$nt)
 			//echo Request::factory('widget_region')->execute();
 			?>
 		</div>
-		<!-- main menu: http://labs.makotokw.com/en/jquery/ui_potato_menu -->
-		<!-- div id="menu">
-			<ul id="main_menu">
-				<li>
-					<a href="/future">Будущие голосования</a>
-					<ul>
-						<li>dropdown list</li>
-						<li>dropdown list</li>
-						<li>dropdown list</li>
-						<li>dropdown list</li>
-					</ul>
-				</li>
-				<li>
-					<a href="/">Активные голосования</a>
-					<ul>
-						<li>dropdown list</li>
-						<li>dropdown list</li>
-						<li>dropdown list</li>
-						<li>dropdown list</li>
-					</ul>
-				</li>
-				<li>
-					<a href="/archive">Архив голосований</a>
-					<ul>
-						<li>dropdown list</li>
-						<li>dropdown list</li>
-						<li>dropdown list</li>
-						<li>dropdown list</li>
-					</ul>
-				</li>
-				<li>
-					<a href="/about">О проекте</a>
-					<ul>
-						<li>
-							<a href="/about/faq">Часто задаваемые вопросы</a>
-							<a href="/about/authors">Авторы</a>
-						</li>
-					</ul>
-				</li>
-			</ul>
-		</div -->
 	</div>
 	<div id="page">
 		<div id="left_column">
@@ -121,13 +80,13 @@ if(!$nt)
 			</div>
 		</div>
 	</div>
-		<div id="footer">
+	<div id="footer">
+		<div>
 			<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" style="float: left;">
 				<img src='/static/images/CC-BY-NC-SA.png' alt='Лицензионное соглашение' title='Лицензионное соглашение'>
 			</a>
-			<p>Бла-бла-бла копилефт, бла-бла-бла демократия</p>
-			<p>Бла-бла-бла, всегда пожалуйсто</p>
 		</div>
+		<p>Бла-бла-бла копилефт, бла-бла-бла демократия<br/>Бла-бла-бла, всегда пожалуйсто</p>
 	</div>
 </body>
 <script type="text/javascript">
