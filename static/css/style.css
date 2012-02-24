@@ -55,8 +55,8 @@ body {
 	font-size: 1.2em;
 }
 
-#right_column > div {
-	padding:2em;
+#right_column > p {
+	padding-left: 1em;
 }
 
 input:disabled{
