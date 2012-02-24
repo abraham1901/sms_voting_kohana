@@ -8,6 +8,7 @@ body {
 
 #header{
 	height: 80px;
+	padding: 1em;
 }
 
 #footer{
@@ -108,7 +109,7 @@ button:mouseover{
 .poll_tabs {
 	font-size: 1em;
 	border:0px;
-	padding:0em;
+	padding:1em;
 }
 
 .poll_vote_form{
