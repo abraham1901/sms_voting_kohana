@@ -1,6 +1,6 @@
 body {
 	background-color:#324894;
-	font-family: Verdana,Arial,sans-serif;
+	font-family: Tahoma,Arial,sans-serif;
 /*	overflow-x: hidden; */
 	border: 0;
 	padding: 0em 2em;
@@ -153,4 +153,8 @@ table.dataTable tr.even {
 	-webkit-box-shadow: none !important;
 	box-shadow: none !important;
 }
-
+#faq_container{
+	padding: 1em 3em;
+	color: #444;
+	
+}
