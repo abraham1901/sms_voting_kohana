@@ -8,6 +8,7 @@ if(!$nt)
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<meta name="verify-reformal" content="c5a66735deffd80de7afeb12" />
 		<link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
 		<title>Электронные голосования<?=$title?" - $title":''?></title>
 		<link rel="stylesheet" href="/static/css/jquery-ui.css">
