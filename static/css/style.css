@@ -59,6 +59,10 @@ body {
 	padding-left: 1em;
 }
 
+#not_for_profit{
+	margin: 2em;
+}
+
 input:disabled{
 	background-color:#cccccc;
 }
