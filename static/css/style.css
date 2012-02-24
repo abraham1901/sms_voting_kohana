@@ -122,6 +122,7 @@ button:mouseover{
 } 
 
 .dataTable tr {
+	height: 22px;
 	font-size: 0.8em;
 }
 
