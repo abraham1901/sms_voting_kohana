@@ -156,4 +156,14 @@ input:disabled{
 .dataTables_wrapper {
   padding-bottom: 1em;
 }
-* /
+*/
+
+#reformal_tab {
+-webkit-border-radius: 0;
+-moz-border-radius: 0;
+border-radius: 0;
+-moz-box-shadow: 0;
+-webkit-box-shadow: 0;
+box-shadow: 0;
+}
+
