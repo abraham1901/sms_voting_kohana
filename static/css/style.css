@@ -162,8 +162,8 @@ input:disabled{
 -webkit-border-radius: 0 !important;
 -moz-border-radius: 0 !important;
 border-radius: 0 !important;
--moz-box-shadow: 0 !important;
--webkit-box-shadow: 0 !important;
-box-shadow: 0 !important;
+-moz-box-shadow: none !important;
+-webkit-box-shadow: none !important;
+box-shadow: none !important;
 }
 
