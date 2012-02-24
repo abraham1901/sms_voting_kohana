@@ -18,6 +18,7 @@ body {
 	overflow-x: hidden;
 	padding: 0;
 	border: 0;
+	padding: 130px 0 110px 0;
 	/* overflow: hidden; */
 	/* height: 100%; */
 }
@@ -78,11 +79,11 @@ body {
 
 .header{
 	padding: 1em;
+	width: 100%; 
 }
 
 #left_column > .header {
 	/* position: absolute; */
-	width: 100%; 
 	background-color:#404040;
 	font-size: 1.1em;
 	font-weight: bold;
@@ -117,7 +118,7 @@ body {
 }
 
 input:disabled{
-	background-color:#aaaaaa;
+	background-color:#cccccc;
 }
 
 .green_link{
