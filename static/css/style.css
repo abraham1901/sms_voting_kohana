@@ -14,6 +14,7 @@ body {
 	clear: both;
 	color: #ffffff;
 	font-size:0.75em;
+	visibility: hidden;
 }
 
 #footer a {
