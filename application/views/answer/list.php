@@ -31,9 +31,9 @@
 				<?=$answer->title?><?=($answer->url)?" <a href=\"{$answer->url}\" target=\"_blank
 \">info</a>":''?>
 			</td>
-			<td>
+			<!-- td>
 				<span class="rating"><?=$answer->rating?></span>
-			</td>
+			</td -->
 		</tr>
 		<?php
 	}
