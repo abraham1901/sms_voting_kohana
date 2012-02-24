@@ -81,12 +81,14 @@ if(!$nt)
 		</div>
 	</div>
 	<div id="footer">
-		<div>
+		<div style="float: left;">
 			<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">
 				<img src='/static/images/CC-BY-NC-SA.png' alt='Лицензионное соглашение' title='Лицензионное соглашение'>
 			</a>
 		</div>
-		<p>Бла-бла-бла копилефт, бла-бла-бла демократия<br/>Бла-бла-бла, всегда пожалуйсто</p>
+		<div>
+			<p>Бла-бла-бла копилефт, бла-бла-бла демократия<br/>Бла-бла-бла, всегда пожалуйсто</p>
+		</div>
 	</div>
 </body>
 <script type="text/javascript">
