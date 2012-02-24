@@ -82,7 +82,7 @@ if(!$nt)
 	</div>
 	<div id="footer">
 		<div>
-			<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" style="float: left;">
+			<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">
 				<img src='/static/images/CC-BY-NC-SA.png' alt='Лицензионное соглашение' title='Лицензионное соглашение'>
 			</a>
 		</div>
