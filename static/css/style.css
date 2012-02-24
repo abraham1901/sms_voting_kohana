@@ -62,8 +62,24 @@ body {
 	margin: 2em;
 }
 
+/*
+фон: fff | f0f0f0 | fff, бордер: a0a0a0 | a0a0a0 | 009900
+*/
+
+input{
+	background-color:#ffffff;
+	border: 1px solid #a0a0a0;
+}
+
 input:disabled{
-	background-color:#cccccc;
+	background-color:#f0f0f0;
+	border: 1px solid #a0a0a0;
+}
+
+input:focus{
+	background-color:#ffffff;
+	border: 1px solid #009900;
+	color: #009900;
 }
 
 .green_link{
