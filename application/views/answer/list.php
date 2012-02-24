@@ -45,7 +45,7 @@
 	//dataTables: http://datatables.net/index
 	$('#poll_<?=$poll->id?>_answers_table').dataTable(
 		{
-			"sScrollY": "400px", // pashukhin - она по-другому не скроллится, вроде как
+			//"sScrollY": "400px", // pashukhin - она по-другому не скроллится, вроде как
 			"bPaginate": false,
 			"bInfo": false,
 			"aaSorting": [[ 2, "desc" ]],
