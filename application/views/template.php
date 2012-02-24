@@ -111,12 +111,12 @@ if(!$nt)
 			<div>
 				<p>
 					проект разрабатывается группой энтузиастов<br/>
-					<a href="http://www.facebook.com/groups/egolosovanie.dev/">facebook.com/groups/egolosovanie.dev</a><br/>
+					<a class="green_link" href="http://www.facebook.com/groups/egolosovanie.dev/">facebook.com/groups/egolosovanie.dev</a><br/>
 					из Рабочей группы Электронной демократии<br/>
-					<a href="http://www.facebook.com/groups/eldem/">facebook.com/groups/eldem</a>
+					<a class="green_link" href="http://www.facebook.com/groups/eldem/">facebook.com/groups/eldem</a>
 				</p>
 				<p>
-					<a href="/about/faq">Часто задаваемые вопросы</a>
+					<a class="green_link" href="/about/faq">Часто задаваемые вопросы</a>
 				</p>
 			</div>
 			<div class="not_for_profit">
