@@ -79,16 +79,14 @@ input:focus{
 
 button:disabled{
 	height: 24px !important;
-	font-size: 12px !important;
 	color: #fff !important;
 	background-color: #a0a0a0 !important;
 }
 
 button{
-	/* фон 444, цвет текста 3c3*/
+	font-size: 12px !important;
 	background-color: #444 !important;
 	color: #3c3 !important;
-	/* background-color: #009900 !important; */
 }
 
 button:mouseover{
