@@ -32,7 +32,7 @@
 \">info</a>":''?>
 			</td>
 			<td>
-				<b><?=$answer->rating?></b>
+				<span class="rating"><?=$answer->rating?></span>
 			</td>
 		</tr>
 		<?php
