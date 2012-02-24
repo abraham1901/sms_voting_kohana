@@ -125,6 +125,18 @@ button:mouseover{
 	font-size: 0.8em;
 }
 
+table.dataTable thead{
+	background-color: #ccc;
+}
+
+table.dataTable tr.odd {
+	background-color: #d8ddf2;
+}
+
+table.dataTable tr.even {
+	background-color: #e1e5f5;
+}
+
 #reformal_tab {
 	-webkit-border-radius: 0 !important;
 	-moz-border-radius: 0 !important;
