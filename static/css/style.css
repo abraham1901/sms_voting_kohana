@@ -1,9 +1,9 @@
 body {
 	background-color:#324894;
 	font-family: Verdana,Arial,sans-serif;
-	overflow-x: hidden;
+/*	overflow-x: hidden; */
 	border: 0;
-	padding: 1em 2em;
+	padding: 0em 2em;
 }
 
 #header, #footer{
