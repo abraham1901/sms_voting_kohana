@@ -147,6 +147,10 @@ input:disabled{
 	border: 0px none;
 }
 
+.dataTable{
+	width: 100% !important;
+} 
+
 .dataTable tr {
   font-size: 0.8em;
   /* line-height: 0;*/
