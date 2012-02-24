@@ -1,4 +1,3 @@
-
 /*
 .innertube{
 margin: 15px; /*Margins for inner DIV inside each DIV (to provide padding)* /
@@ -115,6 +114,10 @@ html {
 
 input:disabled{
 	background-color:#aaaaaa;
+}
+
+.green_link{
+	color:#00aa00;
 }
 
 .poll_tabs {
