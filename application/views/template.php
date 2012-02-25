@@ -79,7 +79,7 @@ if(!$nt)
 			<div class="header">О ПРОЕКТЕ</div>
 			<p>
 				проект разрабатывается группой энтузиастов<br/>
-				<a class="green_link" href="http://www.facebook.com/groups/egolosovanie.dev/">facebook.com/groups/egolosovanie.dev</a><br/>
+				<a class="green_link" href="http://www.facebook.com/groups/egolosovanie/">facebook.com/groups/egolosovanie</a><br/>
 				из Рабочей группы Электронной демократии<br/>
 				<a class="green_link" href="http://www.facebook.com/groups/eldem/">facebook.com/groups/eldem</a>
 			</p>
