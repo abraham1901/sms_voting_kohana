@@ -120,14 +120,14 @@ button:mouseover{
 }
 
 .ui-tabs .ui-tabs-nav li {
-	background:none;
+	/* background:none;*/
 	padding: 0em 1em;
 	font-size: 0.8em;
 	border: 0px none;
-	color: #f0f0f0;
-	background-color: #7f7f7f;
+	/* color: #f0f0f0;
+	background-color: #7f7f7f; */
 }
-
+/*
 li.ui-tabs-selected {
 	background:none;
 	color: #3c3;
@@ -140,6 +140,7 @@ li.ui-state-hover {
 	color: #444;
 	background-color: #3c3;
 }
+*/
 
 .dataTable{
 	width: 100% !important;
