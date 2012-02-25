@@ -123,6 +123,19 @@ button:mouseover{
 	padding: 0em 1em;
 	font-size: 0.8em;
 	border: 0px none;
+	color: #f0f0f0;
+	background-color: #7f7f7f;
+}
+
+li.ui-tabs-selected {
+	color: #3c3;
+	background-color: #444;
+}
+
+
+li.ui-state-hover {
+	color: #444;
+	background-color: #3c3;
 }
 
 .dataTable{
