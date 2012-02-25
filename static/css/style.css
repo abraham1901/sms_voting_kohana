@@ -120,6 +120,7 @@ button:mouseover{
 }
 
 .ui-tabs .ui-tabs-nav li {
+	background:none;
 	padding: 0em 1em;
 	font-size: 0.8em;
 	border: 0px none;
@@ -128,12 +129,14 @@ button:mouseover{
 }
 
 li.ui-tabs-selected {
+	background:none;
 	color: #3c3;
 	background-color: #444;
 }
 
 
 li.ui-state-hover {
+	background:none;
 	color: #444;
 	background-color: #3c3;
 }
