@@ -10,7 +10,7 @@
 	{
 	?>
 	<tr>
-		<td><?=$vote->md5_sign?></td>
+		<td><code><?=$vote->md5_sign?></code></td>
 		<td><?=$vote->canceled?'<s>':''?><?=$vote->answer->title?><?=$vote->canceled?'</s>':''?></td>
 		<td><?=$vote->created?></td>
 	</tr>
