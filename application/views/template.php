@@ -99,6 +99,7 @@ if(!$nt)
 		</div>
 		<div>Бла-бла-бла копилефт, бла-бла-бла демократия<br/>Бла-бла-бла, всегда пожалуйсто</p></div>
 	</div>
+	<!-- Yandex.Metrika counter --><div style="display:none;"><script type="text/javascript">(function(w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter12829282 = new Ya.Metrika({id:12829282, enableAll: true, trackHash:true, webvisor:true}); } catch(e) { } }); })(window, "yandex_metrika_callbacks");</script></div><script src="//mc.yandex.ru/metrika/watch.js" type="text/javascript" defer="defer"></script><noscript><div><img src="//mc.yandex.ru/watch/12829282" style="position:absolute; left:-9999px;" alt="" /></div></noscript><!-- /Yandex.Metrika counter -->
 </body>
 <script type="text/javascript">
     var reformalOptions = {
